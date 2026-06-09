@@ -4,6 +4,8 @@ pipeline {
     environment {
         DOCKER_HUB_USER = 'abhi1222'
         COMPOSE_PROJECT_NAME = 'petclinic'
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
     tools {
