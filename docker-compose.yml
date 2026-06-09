@@ -1,6 +1,12 @@
 services:
   config-server:
-    image: springcommunity/spring-petclinic-config-server
+    config-server:
+  build:
+    context: .
+    dockerfile: docker/Dockerfile
+    args:
+      ARTIFACT_NAME: spring-petclinic-config-server
+  image: abhi1222/petclinic-config-server:latest
     container_name: config-server
     deploy:
       resources:
