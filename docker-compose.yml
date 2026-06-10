@@ -1,8 +1,7 @@
 services:
   config-server:
-    config-server:
-  build:
-    context: .
+    build:
+      context: .
     dockerfile: docker/Dockerfile
     args:
       ARTIFACT_NAME: spring-petclinic-config-server
