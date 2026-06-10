@@ -2,22 +2,27 @@ services:
   config-server:
     build:
       context: .
-    dockerfile: docker/Dockerfile
-    args:
-      ARTIFACT_NAME: spring-petclinic-config-server
-  image: abhi1222/petclinic-config-server:latest
+      dockerfile: docker/Dockerfile
+      args:
+        ARTIFACT_NAME: spring-petclinic-config-server
+
+    image: abhi1222/petclinic-config-server:latest
+
     container_name: config-server
+
     deploy:
       resources:
         limits:
           memory: 512M
+
     healthcheck:
       test: ["CMD", "curl", "-I", "http://config-server:8888"]
       interval: 5s
       timeout: 5s
       retries: 10
+
     ports:
-     - 8888:8888
+      - "8888:8888"
 
   discovery-server:
     image: springcommunity/spring-petclinic-discovery-server
